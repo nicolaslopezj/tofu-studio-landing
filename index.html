@@ -1,41 +1,241 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hello World</title>
+    <title>Tofu Studio - Diseño y Desarrollo de Software</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        :root {
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --background-color: #ffffff;
+            --card-background: #fbfbfb;
+            --border-color: #e5e5e5;
+        }
+
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--background-color);
+            color: var(--text-primary);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: #f8f9fb;
-            color: #1f2933;
-            line-height: 1.5;
-            padding: 2rem;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
             text-align: center;
         }
 
-        h1 {
-            margin: 0 0 0.5rem;
+        .hero {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            padding: 4rem 0;
         }
 
-        p {
-            margin: 0;
+        .logo {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.04em;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin: 0 auto 2.5rem;
+            max-width: 680px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background: #000000;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            border: 1px solid transparent;
+        }
+
+        .cta-button:hover {
+            background: #333333;
+        }
+
+        .services {
+            padding-top: 4rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-play-state: paused;
+        }
+
+        .service-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .service-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .service-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 2rem;
+            color: var(--text-primary);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <h1>Hello World</h1>
-        <p>Welcome to your GitHub Pages site.</p>
-    </main>
+    <div class="container">
+        <main class="hero">
+            <h1 class="logo">Tofu Studio</h1>
+            <p class="subtitle">Creamos productos digitales que la gente ama usar. Simplicidad, elegancia y rendimiento
+                en cada línea de código.</p>
+            <a href="mailto:francisca@tofuberto.com" class="cta-button">Hablemos de tu proyecto</a>
+        </main>
+
+        <section class="services" id="servicios">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Desarrollo Web</h3>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Aplicaciones Móviles</h3>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Asesorías</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const elementsToAnimate = document.querySelectorAll('.hero, .service-card');
+            elementsToAnimate.forEach(el => {
+                // Inicia la animación del hero inmediatamente
+                if (el.classList.contains('hero')) {
+                    el.style.animationPlayState = 'running';
+                } else {
+                    observer.observe(el);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
